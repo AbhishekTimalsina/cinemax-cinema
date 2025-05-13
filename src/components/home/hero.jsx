@@ -39,7 +39,7 @@ export default function Hero({ movie }) {
             />
             <div className="absolute bottom-0 left-0 z-20 md:p-8 p-16 w-full">
               <h1 className="md:text-4xl text-5xl font-bold mb-2">{m.title}</h1>
-              <p className="md:text-xl text-xl mb-6 w-11/12">{m.description}</p>
+              <p className="md:text-sm text-xl mb-6 w-11/12">{m.description}</p>
               <Link
                 href={`/movie/${m._id}/booking`}
                 className="bg-red-600 hover:bg-red-700 text-white font- bold py-3 px-8 rounded-md transition duration-300"
