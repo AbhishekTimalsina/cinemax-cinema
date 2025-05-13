@@ -101,7 +101,9 @@ export default function PaymentForm({ onSubmit }) {
         </div>
 
         <div className="mb-4">
-          <label className="block text-gray-400 mb-2">Card Number</label>
+          <label className="block text-gray-400 mb-2">
+            Card Number (16 digits)
+          </label>
           <input
             type="text"
             name="cardNumber"
