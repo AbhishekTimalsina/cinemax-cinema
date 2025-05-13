@@ -4,6 +4,7 @@ import { getMovieById } from "@/lib/movie-data";
 
 import ErrorMessage from "@/components/utils/error";
 import { cookies } from "next/headers";
+import BookingProgress from "@/components/booking/booking-progress";
 
 export default async function BookingPage({ params }) {
   params = await params;
@@ -32,6 +33,7 @@ export default async function BookingPage({ params }) {
 
   return (
     <div className="max-w-7xl mx-auto w-full sm:px-4 lg:px-6 px-8 py-8">
+      <BookingProgress currentStep={1} />
       <div className="flex md:flex-col flex-row gap-8">
         <MovieDetails movie={movie} />
 
