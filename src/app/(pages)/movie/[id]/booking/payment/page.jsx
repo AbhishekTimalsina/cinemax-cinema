@@ -34,6 +34,7 @@ export default function PaymentPage({ params }) {
     phone: "",
   });
   const [movie, setMovie] = useState([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     getSeatById(seatId || "0").then((res) => setShowSeats(res));
@@ -61,10 +62,12 @@ export default function PaymentPage({ params }) {
     setPaymentStep("confirmation");
   };
   const handleConfirmPayment = () => {
+    setIsSubmitting(true);
     postBookTicket(seatId, movieId, selectedSeats, formData).then((data) => {
       router.push(
         `/movie/${movieId}/booking/confirmation?bookingId=${data._id}`
       );
+      // setIsSubmitting(false);
     });
   };
 
@@ -82,6 +85,7 @@ export default function PaymentPage({ params }) {
                 formData={formData}
                 onBack={() => setPaymentStep("details")}
                 onConfirm={handleConfirmPayment}
+                isSubmitting={isSubmitting}
               />
             )}
           </div>

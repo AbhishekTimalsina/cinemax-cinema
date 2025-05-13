@@ -46,7 +46,7 @@ export async function DELETE(request, { params }) {
   );
 
   await Seats.deleteOne({ _id: seatId });
-  await UserBookings.deleteOne({ seatId });
+  await UserBookings.deleteMany({ seatId });
 
   return Response.json(data);
 }

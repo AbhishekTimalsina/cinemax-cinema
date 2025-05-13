@@ -1,7 +1,10 @@
+import LoadingSpinner from "../utils/loading-spinner";
+
 export default function BookingTable({
   tableData,
   columns,
   emptyMessage = "Table is empty",
+  loading,
 }) {
   return (
     <div className="bg-gray-800 shadow rounded-lg">
@@ -23,7 +26,13 @@ export default function BookingTable({
             </tr>
           </thead>
           <tbody className="bg-gray-800 divide-y divide-gray-700">
-            {tableData.length > 0 ? (
+            {loading ? (
+              <tr>
+                <td colSpan={columns.length}>
+                  <LoadingSpinner noText={true} />
+                </td>
+              </tr>
+            ) : tableData.length > 0 ? (
               tableData.map((bookingData) => (
                 <tr key={bookingData._id} className="hover:bg-gray-700">
                   {columns.map((data, i) => {

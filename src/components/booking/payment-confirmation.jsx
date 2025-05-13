@@ -2,7 +2,12 @@
 
 import { CheckCircle } from "lucide-react";
 
-export default function PaymentConfirmation({ formData, onBack, onConfirm }) {
+export default function PaymentConfirmation({
+  formData,
+  onBack,
+  onConfirm,
+  isSubmitting,
+}) {
   return (
     <div className="bg-gray-900 p-6 rounded-lg">
       <div className="text-center mb-6">
@@ -44,13 +49,19 @@ export default function PaymentConfirmation({ formData, onBack, onConfirm }) {
       <div className="flex space-x-4">
         <button
           onClick={onBack}
-          className="flex-1 bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 rounded transition duration-300"
+          className={`flex-1 bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 rounded transition duration-300 ${
+            isSubmitting ? "opacity-40" : ""
+          }`}
+          disabled={isSubmitting}
         >
           Back to Payment
         </button>
         <button
           onClick={onConfirm}
-          className="flex-1 bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded transition duration-300"
+          className={`flex-1 bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded transition duration-300 ${
+            isSubmitting ? "opacity-40" : ""
+          }`}
+          disabled={isSubmitting}
         >
           Confirm Payment
         </button>

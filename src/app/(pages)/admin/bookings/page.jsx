@@ -9,8 +9,10 @@ export default function BookingsPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [dateRange, setDateRange] = useState("all");
   const [booking, setBooking] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     getAllBookings().then((res) => {
       let data = res.map((data) => {
         return {
@@ -21,6 +23,7 @@ export default function BookingsPage() {
         };
       });
 
+      setLoading(false);
       setBooking(data);
     });
   }, []);
@@ -115,6 +118,7 @@ export default function BookingsPage() {
         tableData={filteredBookings}
         columns={columns}
         emptyMessage="No Booking found"
+        loading={loading}
       />
     </div>
   );

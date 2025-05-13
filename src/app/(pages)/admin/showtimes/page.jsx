@@ -15,8 +15,10 @@ export default function ShowtimesPage() {
   const [isDeleting, setIsDeleting] = useState(false);
   const [showToDelete, setShowToDelete] = useState(null);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     getAllShowTime().then((res) => {
       let filter = res.reduce((acc, data) => {
         let cur = [...acc];
@@ -30,6 +32,7 @@ export default function ShowtimesPage() {
         return cur;
       }, []);
       setShowTimeData(filter);
+      setLoading(false);
     });
   }, []);
 
@@ -157,6 +160,7 @@ export default function ShowtimesPage() {
         columns={columns}
         tableData={filteredShowtimes}
         emptyMessage="No ShowTimes"
+        loading={loading}
       />
       {isDeleteModalOpen && (
         <DeleteModel

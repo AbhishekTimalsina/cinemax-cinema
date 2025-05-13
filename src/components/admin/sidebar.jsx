@@ -37,11 +37,7 @@ export default function AdminSidebar() {
       name: "Bookings",
       href: "/admin/bookings",
       icon: Ticket,
-      subItems: [
-        { name: "All Bookings", href: "/admin/bookings" },
-        { name: "Today's Bookings", href: "/admin/bookings?date=today" },
-        { name: "Pending Bookings", href: "/admin/bookings?status=pending" },
-      ],
+      subItems: [{ name: "All Bookings", href: "/admin/bookings" }],
     },
     {
       name: "Showtimes",
@@ -50,7 +46,6 @@ export default function AdminSidebar() {
       subItems: [
         { name: "All Showtimes", href: "/admin/showtimes" },
         { name: "Add New Showtime", href: "/admin/showtimes/create" },
-        { name: "Schedule", href: "/admin/showtimes/schedule" },
       ],
     },
   ];

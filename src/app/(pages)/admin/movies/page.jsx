@@ -16,11 +16,14 @@ export default function MoviesPage() {
   const [movieToDelete, setMovieToDelete] = useState(null);
   const [allMovies, setAllMovies] = useState([]);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getMovies().then((res) =>
-      setAllMovies([...res.commingSoon, ...res.nowShowing])
-    );
+    setLoading(true);
+    getMovies().then((res) => {
+      setAllMovies([...res.commingSoon, ...res.nowShowing]);
+      setLoading(false);
+    });
   }, []);
 
   const filteredMovies = allMovies.filter((movie) => {
@@ -150,6 +153,7 @@ export default function MoviesPage() {
         columns={columns}
         tableData={filteredMovies}
         emptyMessage="No movies found"
+        loading={loading}
       />
       {isDeleteModalOpen && (
         <DeleteModel
