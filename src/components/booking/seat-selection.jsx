@@ -28,9 +28,9 @@ export default function SeatSelection({
           SCREEN
         </div>
 
-        <div className="min-w-[600px]">
+        <div className=" md:w-full">
           {theaterLayout.map((row) => (
-            <div key={row.row} className="flex items-center mb-2">
+            <div key={row.row} className="flex items-center mb-2 gap-4">
               <div className="w-8 text-center font-bold">{row.row}</div>
               <div className="flex flex-1 justify-center gap-1">
                 {row.seats.map((seat) => (
