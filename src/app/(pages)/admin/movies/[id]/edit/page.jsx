@@ -19,15 +19,14 @@ export default function EditMoviePage({ params }) {
 
       if (fetchedMovie) {
         setMovie(fetchedMovie);
+        setIsLoading(false);
       } else {
         // Handle movie not found
         router.push("/admin/movies");
       }
     })();
-
-    setIsLoading(false);
   }, [movieId]);
-
+  // console.log(movie);
   const handleSubmit = async (movieData) => {
     setIsSubmitting(true);
 
