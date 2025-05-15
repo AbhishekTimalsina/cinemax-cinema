@@ -159,6 +159,7 @@ export default function MoviesPage() {
         <DeleteModel
           onCancel={() => setIsDeleteModalOpen(false)}
           onDelete={() => handleDeleteMovies(movieToDelete)}
+          dataname={"movie"}
           isDeleting={isDeleting}
         />
       )}

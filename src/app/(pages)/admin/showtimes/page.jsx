@@ -167,6 +167,7 @@ export default function ShowtimesPage() {
           onCancel={() => setIsDeleteModalOpen(false)}
           onDelete={() => handleDeleteShow(showToDelete)}
           isDeleting={isDeleting}
+          dataname="showtime"
         />
       )}
     </div>
